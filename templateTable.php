@@ -41,14 +41,33 @@
         
         foreach ($conn->query($sql) as $row) // will cycle through every row of the SELECT statement
         {
-            print '<tr><td>'.$row['DriverID'] .'</td><td>'. $row['DriverName'] . '</td><td>' . $row['DriverDob'] . '</td><td><button>Update</button></td><td><button>Delete</button></td></tr>'; 
+            $rowId = $row['DriverID']; // sets the row ID in order to use it as a value for the buttons for update and delete
+            print 
+            '<tr>
+              <td>
+                '.$row['DriverID'] .'
+              </td>
+              <td>
+                '.$row['DriverName'].'
+              </td>
+              <td>
+                '.$row['DriverDob']."
+              </td>
+              <td>
+                <button value='btnUpd{$rowId}'>Update</button>
+              </td>
+              <td>
+                <button value='btnDel{$rowId}'>Delete</button>
+              </td>
+            </tr>"; 
         }
         echo "</table>";
         echo "<br> <button>Add Record</button>";
 
         $conn =null; // close the connection
-
       ?>
+      
+
     </main>
     <footer>
 
