@@ -7,27 +7,24 @@
   </head>
   <body>
     <header>
-      <h1>Page Title</h1>
+      <h1>Team Driver Information</h1>
       <nav>
         <ul>
-          <li><a href="index.php" id="current">Home</a></li>
+          <li><a href="index.php">Home</a></li>
           <li><a href="raceinfo.php">Race Info</a></li>
           <li><a href="raceparticipant.php">Race Participants Info</a></li>
           <li><a href="driverinfo.php">Driver Info</a></li>
           <li><a href="teaminfo.php">Team Info</a></li>
           <li><a href="teamdriverinfo.php">TeamDriver Info</a></li>
-          <li><a href="report.php" >Race Report</a></li>
+          <li><a href="report.php" id="current">Race Report</a></li>
         </ul>
       </nav>
-    </header>
-    <main>
+      </header>
+      <main>
+      </main>
+      <footer>
 
+      </footer>
 
-
-    </main>
-    <footer>
-
-    </footer>
-
-  </body>
-</html>
+    </body>
+  </html>
