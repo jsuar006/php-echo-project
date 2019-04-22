@@ -22,7 +22,7 @@
     </header>
     <main>
       <?php // connect to database
-        $dsn = "mysql:dbname=racingleague";
+        $dsn = "mysql:host=localhost;dbname=racingleague";
         $userName = "admin";
         $password = "Pa11word";
 
