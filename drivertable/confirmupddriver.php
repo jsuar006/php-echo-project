@@ -58,7 +58,7 @@
     $conn = new PDO($dsn,$userName,$password);
     //echo 'Connected to database<br>'; // only to confirm if connected
     // Prepare and execute the statement
-    if (!$driverName == null && !$driverDOB==null) 
+    if (!$driverName == null && !$driverDOB==null) // Prepare statement only if there is valid input on both fields
     {
       $query = 'UPDATE driver SET 
                     DriverName = :driverName, DriverDob =  :driverDob 
@@ -68,32 +68,42 @@
       $statement->bindValue(':driverName', $driverName);
       $statement->bindValue(':driverDob', $driverDOB);
       $statement->bindValue(':driverId', $driverID);
+
+       $success = $statement->execute(); //executes the statement
+    }else if (!$driverName==null) //Prepares statement only if there is a valid input on the DriverName field
+    {
+      $query = 'UPDATE driver SET 
+                    DriverName = :driverName
+                  WHERE
+                    DriverID = :driverId';
+      $statement = $conn->prepare($query);
+      $statement->bindValue(':driverName', $driverName);
+      $statement->bindValue(':driverId', $driverID);
+
+       $success = $statement->execute(); //executes the statement
+    }else if (!$driverDOB==null) // Prepares statement only if there is a valid input on the DriverDOB field
+    {
+      $query = 'UPDATE driver SET 
+                    DriverDob =  :driverDob 
+                  WHERE
+                    DriverID = :driverId';
+      $statement = $conn->prepare($query);
+      $statement->bindValue(':driverDob', $driverDOB);
+      $statement->bindValue(':driverId', $driverID);
+
+       $success = $statement->execute(); //executes the statement
     }
 
-    $success = $statement->execute();
-    $row_count = $statement->rowCount();
-    $statement->closeCursor();
-      
-    // Get the last product ID that was generated
-    $table_id = $conn->lastInsertId();
+   
   
-    // Display a message to the user
+    // for debuggin purposes only
     if ($success) {
-      echo "<p>$row_countrow(s) was inserted with this ID: $driverID and $driverName and $driverDOB</p>";
+      echo "<p>Update inserted with this ID: $driverID and $driverName and $driverDOB</p>";
     } else {
       echo "<p>No rows were inserted.</p>";
     }
     
 
-  }
-  catch(PDOException $e)
-  {
-    echo $e->getMessage(); //error message if connection fails
-  }
-
- 
-  
-  $conn=null; // close the connection
 ?>
 
 <!DOCTYPE html>
@@ -105,17 +115,35 @@
   </head>
   <body>
     <h1>Information Updated</h1>
-    <p>Below was the information succesfully added.</p>
+    <?php // this will confirm to the user if a value was updated or not. 
+     if ($success) {
+      echo "<p>Below is the information updated for the ID: $driverID.</p>";
+    } else {
+      echo "<p>Error, no values were updated, please try again.</p>";
+    }
+    
+    ?>
     <table>
       <tr>
-        <td>Driver Name</td>
-        <td><?php echo $driverName?></td>
+        <td>Driver Name: </td>
+        <td>  <?php echo ($driverName==null) ?  "No Change" :  $driverName ;?></td>
       </tr>
       <tr>
-        <td>Driver DOB</td>
-        <td><?php echo $driverDOB?></td>
+        <td>Driver DOB: </td>
+        <td><?php echo ($driverDOB==null)? "No Change" : $driverDOB ?></td>
       </tr>
     </table>
     <button type='button' onclick='location.href="../driverinfo.php"'>Return to Driver Info</button>
   </body>
 </html>
+
+<?php
+  
+  }
+  catch(PDOException $e)
+  {
+    echo $e->getMessage(); //error message if connection fails
+  }
+
+  $conn=null; // close the connection
+?>
