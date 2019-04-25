@@ -23,7 +23,7 @@
   try
   {
     $conn = new PDO($dsn,$userName,$password);
-    echo 'Connected to database<br>'; // only to confirm if connected
+    //echo 'Connected to database<br>'; // only to confirm if connected
     // Prepare and execute the statement
     $query = "SELECT * FROM driver WHERE DriverID = {$driverID}";
       
@@ -36,7 +36,7 @@
 
     };
 
-    echo "<p>ID: {$rowID} - Driver Name: {$driverName} -  DriverDOB {$driverDob}</p>"; // to test input from database
+   // echo "<p>ID: {$rowID} - Driver Name: {$driverName} -  DriverDOB {$driverDob}</p>"; // to test input from database
 
   }
   catch(PDOException $e)
@@ -71,8 +71,9 @@
         <td><?php echo $driverDob;?></td>
       </tr>
       <tr>
+        <!-- form used to pass information to the confirmupddriver page for varification and update of the database.  -->
         <form id="frmUpdate" action="confirmupddriver.php" method="post">
-          <td><input type="hidden" name="inpdriverId" value="<?php echo $driverID ?>"> </td>
+          <td><input type="hidden" name="inpdriverId" value="<?php echo $driverID ?>">New Values: </td>
           <td><input type="text" name="inpDriverName" placeholder="First and Last Name" form="frmUpdate"></td>
           <td><input type="text" name="inpDriverDob" placeholder="MM/DD/YYYY" form="frmUpdate"></td>
         </form>

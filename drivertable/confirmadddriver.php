@@ -47,12 +47,12 @@
   // Get the last product ID that was generated
   $table_id = $conn->lastInsertId();
  
-  // Display a message to the user
-  if ($success) {
-    echo "<p>$row_count row(s) was inserted with this ID: $table_id</p>";
-  } else {
-    echo "<p>No rows were inserted.</p>";
-  }
+  //// used for debugging
+  // if ($success) {
+  //   echo "<p>$row_count row(s) was inserted with this ID: $table_id</p>";
+  // } else {
+  //   echo "<p>No rows were inserted.</p>";
+  // }
 
   }
   catch(PDOException $e)
@@ -73,7 +73,7 @@
     <link href="../stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
-    <h1>Information Updated</h1>
+    <h1>Information Added</h1>
     <p>Below was the information succesfully added.</p>
     <table>
       <tr>
