@@ -30,8 +30,8 @@
     <main>
       <p>Please enter the New driver information requested below</p>
       <form action="confirmadddriver.php" method="post">
-        Driver Name<input type="text" name="driverName"  placeholder="First and Last Name"><br>
-        Driver Date of Birth<input type="text" name="driverDOB" placeholder="MM/DD/YYYY"><br>
+        Driver Name: <input type="text" name="driverName"  placeholder="First and Last Name"><br>
+        Driver Date of Birth: <input type="text" name="driverDOB" placeholder="MM/DD/YYYY"><br>
         <input type="submit" name="addrecordsubmit" value="Submit">
       </form>
 
