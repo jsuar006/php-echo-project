@@ -1,5 +1,5 @@
 <?php
-  include ("functions.php"); //includes global functions
+  include ("../functions.php"); //includes global functions
   $rowID = $_POST['rowID'];
   $tableName = $_POST['tableName'];
   $tableRow = $_POST['tableRow'];
@@ -19,7 +19,7 @@
   <head>
     <title>Information Deleted</title>
     <meta charset="utf-8">
-    <link href="stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
+    <link href="../stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
     <h1>Information Deleted</h1>
@@ -38,6 +38,6 @@
         <td><?php echo $_POST["tableRow"]?></td>
       </tr>
     </table>
-    <button type='button' onclick='location.href="driverinfo.php"'>Return to Driver Info</button>
+    <button type='button' onclick='location.href="../driverinfo.php"'>Return to Driver Info</button>
   </body>
 </html>

@@ -38,13 +38,16 @@
 
         //SElECT statement to pull from DB
         $sql = "SELECT * FROM team"; // input correct SQL sintax
-        echo "<table><tr><th>Team ID</th><th>Team Name</th><th>Team Manager</th><th>Delete</th></tr>";
+        echo "<table><tr><th>Team ID</th><th>Team Name</th><th>Team Manager</th><th>Update</th><th>Delete</th></tr>";
 
         foreach ($conn->query($sql) as $row) // will cycle through every row of the SELECT statement
         {
             $rowId = $row['TeamID']; // sets the row ID in order to use it as a value for the buttons for update and delete
             print
             '<tr>
+              <td>
+                '.$row['TeamID'] .'
+              </td>
               <td>
                 '.$row['TeamName'] .'
               </td>

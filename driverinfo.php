@@ -29,11 +29,19 @@
     </header>
     <main>
       <!-- hidden form used to pass the deleteRow JS onclick event to a PHP page -->
-      <form id='frmDelete' action='deletedriver.php' method='post'>
+      <form id='frmDelete' action='drivertable/deletedriver.php' method='post'>
         <input id='delRow' type='hidden' name='rowID' value=''>
         <input id='delTable' type='hidden' name='tableName' value=''>
         <input id='delTRow' type='hidden' name='tableRow' value=''>
+      </form> 
+
+      <!-- hidden form used to pass the updateRow JS onclick event to a PHP page -->
+      <form id='frmUpdate' action='drivertable/updatedriver.php' method='post'>
+        <input id='uptRow' type='hidden' name='rowID' value=''>
+        <!-- <input id='uptTable' type='hidden' name='tableName' value=''>
+        <input id='uptTRow' type='hidden' name='tableCol' value=''> -->
       </form>
+
       <?php // connect to database
         $dsn = "mysql:host=localhost;dbname=racingleague";
         $userName = "admin";
@@ -68,15 +76,15 @@
                 {$row['DriverDob']}
               </td>
               <td>
-                <button value='btnUpd{$rowId}'>Update</button>
+                <button value='btnUpd{$rowId}' onclick=\"updateRow('{$rowId}','driver','DriverID')\">Update</button>
               </td>
               <td>
                 <button value='btnDel{$rowId}' onclick=\"deleteRow('{$rowId}','driver','DriverID')\">Delete</button>
               </td>
-            </tr>";
+            </tr>"; // Buttons Delete will need to be revised to show the correct table for the row to be deleted from. 
         };
         echo "</table>";
-        echo "<br> <button type='button' onclick='location.href=\"formadddriver.php\"'>Add Record</button>";
+        echo "<br> <button type='button' onclick='location.href=\"drivertable/formadddriver.php\"'>Add Record</button>";
 
         $conn=null; // close the connection
       ?>
@@ -90,6 +98,13 @@
           document.getElementById('delTRow').value=tableRow;
           document.getElementById('frmDelete').submit();
       };
+
+        function updateRow (rowID,tableName,tableRow){
+           document.getElementById('uptRow').value=rowID;
+          // document.getElementById('uptTable').value=tableName;
+          // document.getElementById('uptTRow').value=tableRow;
+          document.getElementById('frmUpdate').submit();
+        }
     </script>
   </body>
 </html>

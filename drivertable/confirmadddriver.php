@@ -1,5 +1,5 @@
 <?php 
-  include ("functions.php"); //includes global functions
+  include ("../functions.php"); //includes global functions
   $driverName = $_POST["driverName"];
   $driverDOB = $_POST["driverDOB"];
   trim($driverName);
@@ -70,7 +70,7 @@
   <head>
     <title>Information updated</title>
     <meta charset="utf-8">
-    <link href="stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
+    <link href="../stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
     <h1>Information Updated</h1>
@@ -85,6 +85,6 @@
         <td><?php echo $_POST["driverDOB"]?></td>
       </tr>
     </table>
-    <button type='button' onclick='location.href="driverinfo.php"'>Return to Driver Info</button>
+    <button type='button' onclick='location.href="../driverinfo.php"'>Return to Driver Info</button>
   </body>
 </html>

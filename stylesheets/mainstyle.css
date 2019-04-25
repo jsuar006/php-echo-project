@@ -1,3 +1,15 @@
-button {
+body {
+  background-color: rgb(240, 119, 88);
+  text-align: center;
+}
+
+button,
+input[type="submit"] {
   color: black;
+}
+
+table,
+th,
+tr {
+  border: 2px solid black;
 }
