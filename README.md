@@ -1,6 +1,6 @@
 # php-echo-project
 
-This repository holds a php group project for a BC college course.
+This repository holds a php group project for a college course.
 Authors: Silvia Cueto, Claudia Farquharson, Luis Leslie, Jordan Messano, Jennifer Suarez.
 
 Work distribution:
