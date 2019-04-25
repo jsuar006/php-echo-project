@@ -97,11 +97,11 @@
    
   
     // for debuggin purposes only
-    if ($success) {
-      echo "<p>Update inserted with this ID: $driverID and $driverName and $driverDOB</p>";
-    } else {
-      echo "<p>No rows were inserted.</p>";
-    }
+    // if ($success) {
+    //   echo "<p>Update inserted with this ID: $driverID and $driverName and $driverDOB</p>";
+    // } else {
+    //   echo "<p>No rows were inserted.</p>";
+    // }
     
 
 ?>
@@ -117,7 +117,7 @@
     <h1>Information Updated</h1>
     <?php // this will confirm to the user if a value was updated or not. 
      if ($success) {
-      echo "<p>Below is the information updated for the ID: $driverID.</p>";
+      echo "<p>Below is the information updated for Driver ID: $driverID.</p>";
     } else {
       echo "<p>Error, no values were updated, please try again.</p>";
     }

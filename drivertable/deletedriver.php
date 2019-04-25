@@ -4,6 +4,7 @@
   $tableName = $_POST['tableName'];
   $tableRow = $_POST['tableRow'];
 
+  //function deleteRow is called and returns a true or false value as confirmation.
   $delRow = deleteRow($rowID,$tableName,$tableRow);
 
   if(!$delRow){
@@ -23,7 +24,7 @@
   </head>
   <body>
     <h1>Information Deleted</h1>
-    <p>Below was the information succesfully added.</p>
+    <p>Below information has been deleted from the table "Driver".</p>
     <table>
       <tr>
         <td>Row ID</td>

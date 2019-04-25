@@ -41,12 +41,12 @@
     // $delete_count = $conn->exec($query);
 
     if($success){
-      echo "success {$row_count}";
+      //echo "success {$row_count}"; //only used for debugging
       $conn=NULL; // close the connection
       return TRUE;
     }else
     {
-      echo "success failed {$row_count}";
+      //echo "success failed {$row_count}"; //only used for debugging
       $conn=NULL;
       return FALSE;
     }
