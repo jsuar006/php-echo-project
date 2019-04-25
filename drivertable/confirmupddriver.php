@@ -1,5 +1,6 @@
 <?php 
   include ("../functions.php"); //includes global functions
+  // initializes variable being imported from a form.
   $driverID = $_POST["inpdriverId"];
   $driverName = $_POST["inpDriverName"];
   $driverDOB = $_POST["inpDriverDob"];
@@ -9,6 +10,8 @@
   session_start();
   $_SESSION['driverId'] = $driverID;
   //echo "variables have {$driverID} {$driverName} and {$driverDOB}"; //debugging only
+
+  // *****************INPUT VALIDATION BELOW *********************
 
   // will check if there is any input on either fields if not will send an alert and return to the previous page 
   if ($driverName==null && $driverDOB==null){
@@ -43,48 +46,55 @@
     };
   };  
 
-      echo "variables have {$driverID} {$driverName} and {$driverDOB}"; //debugging only
-//   //connect to db
-//   $dsn = "mysql:host=localhost;dbname=racingleague";
-//   $userName = "admin"; 
-//   $password = "Pa11word";
+  // *****************INPUT VALIDATION ABOVE *********************
 
-//   try
-//   {
-//     $conn = new PDO($dsn,$userName,$password);
-//     //echo 'Connected to database<br>'; // only to confirm if connected
-//     // Prepare and execute the statement
-//   $query = 'INSERT INTO driver
-//                 (DriverName, DriverDob)
-//               VALUES
-//                 (:driverName, :driverDOB)';
-//   $statement = $conn->prepare($query);
-//   $statement->bindValue(':driverName', $driverName);
-//   $statement->bindValue(':driverDOB', $driverDOB);
-//   $success = $statement->execute();
-//   $row_count = $statement->rowCount();
-//   $statement->closeCursor();
-     
-//   // Get the last product ID that was generated
-//   $table_id = $conn->lastInsertId();
- 
-//   // Display a message to the user
-//   if ($success) {
-//     echo "<p>$row_count row(s) was inserted with this ID: $table_id</p>";
-//   } else {
-//     echo "<p>No rows were inserted.</p>";
-//   }
+  //connect to db
+  $dsn = "mysql:host=localhost;dbname=racingleague";
+  $userName = "admin"; 
+  $password = "Pa11word";
 
-//   }
-//   catch(PDOException $e)
-//   {
-//     echo $e->getMessage(); //error message if connection fails
-//   }
+  try
+  {
+    $conn = new PDO($dsn,$userName,$password);
+    //echo 'Connected to database<br>'; // only to confirm if connected
+    // Prepare and execute the statement
+    if (!$driverName == null && !$driverDOB==null) 
+    {
+      $query = 'UPDATE driver SET 
+                    DriverName = :driverName, DriverDob =  :driverDob 
+                  WHERE
+                    DriverID = :driverId';
+      $statement = $conn->prepare($query);
+      $statement->bindValue(':driverName', $driverName);
+      $statement->bindValue(':driverDob', $driverDOB);
+      $statement->bindValue(':driverId', $driverID);
+    }
+
+    $success = $statement->execute();
+    $row_count = $statement->rowCount();
+    $statement->closeCursor();
+      
+    // Get the last product ID that was generated
+    $table_id = $conn->lastInsertId();
+  
+    // Display a message to the user
+    if ($success) {
+      echo "<p>$row_countrow(s) was inserted with this ID: $driverID and $driverName and $driverDOB</p>";
+    } else {
+      echo "<p>No rows were inserted.</p>";
+    }
+    
+
+  }
+  catch(PDOException $e)
+  {
+    echo $e->getMessage(); //error message if connection fails
+  }
 
  
   
-//   $conn=null; // close the connection
-// ?>
+  $conn=null; // close the connection
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -99,11 +109,11 @@
     <table>
       <tr>
         <td>Driver Name</td>
-        <td><?php echo $_POST["driverName"]?></td>
+        <td><?php echo $driverName?></td>
       </tr>
       <tr>
         <td>Driver DOB</td>
-        <td><?php echo $_POST["driverDOB"]?></td>
+        <td><?php echo $driverDOB?></td>
       </tr>
     </table>
     <button type='button' onclick='location.href="../driverinfo.php"'>Return to Driver Info</button>
