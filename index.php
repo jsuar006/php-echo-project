@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title> Update Info Template</title>
+    <title> Race database</title>
     <meta charset="utf-8">
     <link href="stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
     <header>
-      <h1>Page Title</h1>
+      <h1>Racing League Database Management portal</h1>
       <nav>
         <ul>
-          <li><a href="index.php" id="current">Home</a></li>
+          <li><a href="#" id="current">Home</a></li>
           <li><a href="raceinfo.php">Race Info</a></li>
           <li><a href="raceparticipant.php">Race Participants Info</a></li>
           <li><a href="driverinfo.php">Driver Info</a></li>
