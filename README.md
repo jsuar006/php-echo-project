@@ -9,11 +9,11 @@ Pages: Each team member is responsible for creating a working page for a specifi
 
 PAGE BREAKDOWN:
 index.php - Claudia Farquharson
-raceinfo.php -
-raceparticipation.php -
+raceinfo.php - Claudia Farquharson & Luis Leslie
+raceparticipation.php - Claudia Farquharson & Luis Leslie
 driverinfo.php - Luis Leslie
-teaminfo.php -
-teamdriver.php -
+teaminfo.php - Claudia Farquharson & Luis Leslie
+teamdriver.php - Claudia Farquharson & Luis Leslie
 racereport.php - Jordan Messano
 mainstyles.css - Jennifer Suarez
 functions.php - Luis Leslie
