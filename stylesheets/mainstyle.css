@@ -93,6 +93,7 @@ main {
 }
 
 form {
+  margin-top: 20px;
   padding: 5px;
   text-align: center;
 }
@@ -100,6 +101,14 @@ form {
 form input {
   display: block;
   margin: 15px auto;
+}
+
+form select {
+  margin: 15px 0;
+}
+
+form label {
+  margin-top:
 }
 
 button, input[type="submit"] {
