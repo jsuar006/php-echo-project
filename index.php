@@ -22,7 +22,30 @@
     </header>
     <main>
 
-
+      <h2>View Information:</h2>
+      <table>
+        <tr>
+          <th>Tables:</th>
+        </tr>
+        <tr>
+          <td><a href="raceinfo.php">Race Info</a></td>
+        </tr>
+        <tr>
+          <td><a href="raceparticipant.php">Race Participants Info</a></td>
+        </tr>
+        <tr>
+          <td><a href="driverinfo.php">Driver Info</a></td>
+        </tr>
+        <tr>
+          <td><a href="teaminfo.php">Team Info</a></td>
+        </tr>
+        <tr>
+          <td><a href="teamdriverinfo.php">TeamDriver Info</a></td>
+        </tr>
+        <tr>
+          <td><a href="report.php">Race Report</a></td>
+        </tr>
+      </table>
 
     </main>
     <footer>

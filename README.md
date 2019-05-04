@@ -8,7 +8,7 @@ Build Database: Jordan Messano
 Pages: Each team member is responsible for creating a working page for a specific table and all corresponding pages needed per table
 
 PAGE BREAKDOWN:
-index.php - Claudia Farquharson
+index.php - Claudia Farquharson, Jennifer Suarez
 raceinfo.php - Claudia Farquharson & Luis Leslie
 raceparticipation.php - Claudia Farquharson & Luis Leslie
 driverinfo.php - Luis Leslie
