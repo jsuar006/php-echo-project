@@ -1,19 +1,136 @@
-body {
+/*body {
   margin-left: auto;
   margin-right: auto;
   background-color: rgb(240, 119, 88);
   text-align: center;
-}
+} */
 
-button,
+/*button,
 input[type="submit"] {
-  color: black;
+  color: black;*/
+
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Oswald');
+@import url('https://fonts.googleapis.com/css?family=Bangers');
+
+/*
+	Authors: Jennifer Suarez, Claudia Farquharson, Luis Leslie, Jordan Messano, Silvia Cueto
+	Group Project: Echo
+	File:   stylesheets/mainstyle.css
+*/
+
+/* Fonts */
+
+header, footer, h3, h4, h5, h6 {
+  font-family: 'Open Sans', sans-serif;
 }
 
-table,
-th,
-tr,
-td {
+h1, h2 {
+  font-family: 'Bangers', cursive;
+  letter-spacing: 2px;
+}
+
+p, label {
+  font-family: 'Montserrat', sans-serif;
+}
+
+hr {
+  border: 5px solid rgb(9, 27, 45);
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+header {
+  margin: 0;
+  padding: 5px 0 0;
+  background-color: rgb(9, 27, 45);
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+/* Nav bar */
+nav {
+  max-width: 100%;
+  margin-bottom: 5px;
+	background-color: rgb(0, 0, 0);
+	font-size: 1.1em;
+}
+
+/* Setting margin and padding to 0 of ul container properly vertically centers li */
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 0.6% 2%;
+}
+
+nav ul li a {
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+}
+
+nav ul li a:hover {
+	color: rgb(255, 190, 126);
+}
+
+nav::after {
+	clear: both;
+	content: "";
+	display: table;
+}
+
+main {
+  max-width: 75%;
+  margin: 0 auto;
+  padding-bottom: 35px;
+  text-align: center;
+}
+
+form {
+  padding: 5px;
+  text-align: center;
+}
+
+form input {
+  display: block;
+  margin: 15px auto;
+}
+
+table {
+  border: 1px solid black;
   border-collapse: collapse;
-  border: 2px solid black;
+  width: 75%;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+}
+
+table, th, tr, td {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 5px;
+}
+
+footer {
+  margin: 0;
+  padding: 15px 0;
+  background-color: rgb(9, 27, 45);
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-weight: bold;
 }
