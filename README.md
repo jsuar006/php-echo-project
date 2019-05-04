@@ -14,6 +14,6 @@ raceparticipation.php - Claudia Farquharson & Luis Leslie
 driverinfo.php - Luis Leslie
 teaminfo.php - Claudia Farquharson & Luis Leslie
 teamdriver.php - Claudia Farquharson & Luis Leslie
-racereport.php - Jordan Messano
+racereport.php - Jennifer Suarez, Jordan Messano
 mainstyles.css - Jennifer Suarez
 functions.php - Luis Leslie
