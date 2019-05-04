@@ -84,7 +84,7 @@
   <head>
     <title>Information updated</title>
     <meta charset="utf-8">
-    <link href="../stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
+    <link href="stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
     <h1>Information Added</h1>
@@ -103,6 +103,6 @@
         <td><?php echo $_POST["positionFinished"]?></td>
       </tr>
     </table>
-    <button type='button' onclick='location.href="../raceparticipant.php"'>Return to Driver Info</button>
+    <button type='button' onclick='location.href="raceparticipant.php"'>Return to Driver Info</button>
   </body>
 </html>

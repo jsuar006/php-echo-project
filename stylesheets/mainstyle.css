@@ -23,7 +23,7 @@ h1, h2 {
   letter-spacing: 2px;
 }
 
-p, label {
+p, label, form {
   font-family: 'Montserrat', sans-serif;
 }
 

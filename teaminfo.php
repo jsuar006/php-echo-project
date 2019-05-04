@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title> Update Info Template</title>
+    <title>Team Information</title>
     <meta charset="utf-8">
     <link href="stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
   </head>

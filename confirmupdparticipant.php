@@ -1,5 +1,5 @@
 <?php
-  include ("../functions.php"); //includes global functions
+  include ("functions.php"); //includes global functions
   // initializes variable being imported from a form.
 
   $raceID = $_POST['inpRaceID'];
@@ -23,7 +23,7 @@
     session_start();
     $errorMsg = "<script>alert('Please enter a value on at least one of the fields to update.')</script>";
     $_SESSION['dateError'] = $errorMsg;
-    header("Location:UpdatedParticipant.php"); //used to return to previous page
+    header("Location: UpdatedParticipant.php"); //used to return to previous page
     delete_everything();//used to confirm no other script from this page runs.
   }
 
@@ -34,7 +34,7 @@
       session_start();
       $errorMsg = "<script>alert('Please enter a value')</script>";
       $_SESSION['dateError'] = $errorMsg;
-      header("Location:UpdatedParticipant.php"); //used to return to previous page
+      header("Location: UpdatedParticipant.php"); //used to return to previous page
       delete_everything();//used to confirm no other script from this page runs.
     };
   };
@@ -46,7 +46,7 @@
       session_start();
       $errorMsg = "<script>alert('Please enter a value')</script>";
       $_SESSION['dateError'] = $errorMsg;
-      header("Location:UpdatedParticipant.php"); //used to return to previous page
+      header("Location: UpdatedParticipant.php"); //used to return to previous page
       delete_everything();//used to confirm no other script from this page runs.
     };
   };
@@ -57,7 +57,7 @@
       session_start();
       $errorMsg = "<script>alert('Please enter a value')</script>";
       $_SESSION['dateError'] = $errorMsg;
-      header("Location:UpdatedParticipant.php"); //used to return to previous page
+      header("Location: UpdatedParticipant.php"); //used to return to previous page
       delete_everything(); //used to confirm no other script from this page runs.
     };
   };
@@ -145,7 +145,7 @@
   <head>
     <title>Information updated</title>
     <meta charset="utf-8">
-    <link href="../stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
+    <link href="stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
     <h1>Information Updated</h1>
@@ -176,7 +176,7 @@
       </tr>
 
     </table>
-    <button type='button' onclick='location.href="../raceparticipant.php"'>Return to Race Participant</button>
+    <button type='button' onclick='location.href="raceparticipant.php"'>Return to Race Participant</button>
   </body>
 </html>
 

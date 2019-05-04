@@ -1,5 +1,5 @@
 <?php
-  include ("../functions.php"); //includes global functions
+  include ("functions.php"); //includes global functions
   $rowID = $_POST['rowID'];
   $tableName = $_POST['tableName'];
   $tableRow = $_POST['tableRow'];
@@ -11,7 +11,7 @@
     session_start();
     $errorMsg = "<script>alert('Error could not delete record! contact your adminitrator')</script>";
     $_SESSION['dateError'] = $errorMsg;
-    header("Location:raceinfo.php"); //used to return to previous page
+    header("Location: raceinfo.php"); //used to return to previous page
     delete_everything();//used to confirm no other script from this page runs.
   }
 ?>
@@ -20,11 +20,11 @@
   <head>
     <title>Information Deleted</title>
     <meta charset="utf-8">
-    <link href="../stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
+    <link href="stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
     <header>
-      <h1>Page Title</h1>
+      <h1>Delete Race</h1>
       <nav>
         <ul>
           <li><a href="index.php">Home</a></li>
@@ -55,6 +55,6 @@
         <td><?php echo $_POST["tableRow"]?></td>
       </tr>
     </table>
-    <button type='button' onclick='location.href="../raceinfo.php"'>Return to Race Info</button>
+    <button type='button' onclick='location.href="raceinfo.php"'>Return to Race Info</button>
   </body>
 </html>

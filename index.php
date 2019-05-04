@@ -23,7 +23,7 @@
     <main>
 
       <h2>View Information:</h2>
-      <table>
+      <table id="home">
         <tr>
           <th>Tables:</th>
         </tr>

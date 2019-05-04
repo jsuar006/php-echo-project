@@ -135,7 +135,7 @@
   <head>
     <title>Information updated</title>
     <meta charset="utf-8">
-    <link href="../stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
+    <link href="stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
     <h1>Information Updated</h1>
@@ -166,7 +166,7 @@
       </tr>
 
     </table>
-    <button type='button' onclick='location.href="../teamdriverinfo.php"'>Return to Team Driver</button>
+    <button type='button' onclick='location.href="teamdriverinfo.php"'>Return to Team Driver</button>
   </body>
 </html>
 

@@ -11,7 +11,7 @@
   <head>
     <title> Add Team Information</title>
     <meta charset="utf-8">
-    <link href="../stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
+    <link href="stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
     <header>

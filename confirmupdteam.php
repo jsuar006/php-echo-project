@@ -1,5 +1,5 @@
 <?php
-  include ("../functions.php"); //includes global functions
+  include ("functions.php"); //includes global functions
   // initializes variable being imported from a form.
   $teamName = $_POST["inpteamName"];
   $teamManager = $_POST["inpteamManager"];
@@ -14,7 +14,7 @@
     session_start();
     $errorMsg = "<script>alert('Please enter a value on at least one of the fields to update.')</script>";
     $_SESSION['dateError'] = $errorMsg;
-    header("Location:updateteam.php"); //used to return to previous page
+    header("Location: updateteam.php"); //used to return to previous page
     delete_everything();//used to confirm no other script from this page runs.
   }
   //will check if anthing was inputed.
@@ -24,7 +24,7 @@
       session_start();
       $errorMsg = "<script>alert('Name entered must have at least one character with a maximum of 30')</script>";
       $_SESSION['dateError'] = $errorMsg;
-      header("Location:updateteam.php"); //used to return to previous page
+      header("Location: updateteam.php"); //used to return to previous page
       delete_everything();//used to confirm no other script from this page runs.
     };
   };
@@ -34,7 +34,7 @@
       session_start();
       $errorMsg = "<script>alert('Name entered must have at least one character with a maximum of 30')</script>";
       $_SESSION['dateError'] = $errorMsg;
-      header("Location:updateteam.php"); //used to return to previous page
+      header("Location: updateteam.php"); //used to return to previous page
       delete_everything();//used to confirm no other script from this page runs.
     };
   };
@@ -101,7 +101,7 @@
   <head>
     <title>Information updated</title>
     <meta charset="utf-8">
-    <link href="../stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
+    <link href="stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
     <h1>Information Updated</h1>
@@ -123,7 +123,7 @@
         <td><?php echo ($teamManager==null)? "No Change" : $teamManager; ?></td>
       </tr>
     </table>
-    <button type='button' onclick='location.href="../teaminfo.php"'>Return to Driver Info</button>
+    <button type='button' onclick='location.href="teaminfo.php"'>Return to Driver Info</button>
   </body>
 </html>
 
