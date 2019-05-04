@@ -24,7 +24,6 @@
           <li><a href="../driverinfo.php">Driver Info</a></li>
           <li><a href="../teaminfo.php">Team Info</a></li>
           <li><a href="../teamdriverinfo.php">TeamDriver Info</a></li>
-          <li><a href="../report.php">Race Report</a></li>
         </ul>
       </nav>
     </header>

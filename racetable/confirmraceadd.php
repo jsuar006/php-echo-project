@@ -1,12 +1,14 @@
 <?php
   include ("../functions.php"); //includes global functions
-  $raceID = $_POST["inpRaceID"];
-  $raceName = $_POST["inpRaceName"];
-  $raceLocation = $_POST["inpRaceLocation"];
-  $raceDate = $_POST["inpRaceDate"];
+  $raceName = $_POST["raceName"];
+  $raceLocation = $_POST["raceLocation"];
+  $raceDate = $_POST["raceDate"];
   trim($raceName);
   trim($raceLocation);
   trim($raceDate);
+
+  session_start();
+  $_SESSION['raceName'] = $raceName;
   //echo "variables have {$driverName} and {$driverDOB}" //debugging only
 
   //validates the name field, that there is a value entered and that the value is 30 char or less
