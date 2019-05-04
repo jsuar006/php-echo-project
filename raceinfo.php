@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Race Information</title>
+    <title> Update Info Template</title>
     <meta charset="utf-8">
     <link href="stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
     <header>
-      <h1>Race Information</h1>
+      <h1>Page Title</h1>
       <nav>
         <ul>
           <li><a href="index.php">Home</a></li>
@@ -16,7 +16,7 @@
           <li><a href="driverinfo.php">Driver Info</a></li>
           <li><a href="teaminfo.php">Team Info</a></li>
           <li><a href="teamdriverinfo.php">TeamDriver Info</a></li>
-          <li><a href="report.php">Race Report</a></li>
+          <li><a href="report.php" >Race Report</a></li>
         </ul>
       </nav>
     </header>
