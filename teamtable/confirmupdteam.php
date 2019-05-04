@@ -19,7 +19,7 @@
     session_start();
     $errorMsg = "<script>alert('Please enter a value on at least one of the fields to update.')</script>";
     $_SESSION['dateError'] = $errorMsg;
-    header("Location:updateteam.php"); //used to return to previous page
+    header("Location: updateteam.php"); //used to return to previous page
     delete_everything();//used to confirm no other script from this page runs.
   }
 
@@ -30,7 +30,7 @@
       session_start();
       $errorMsg = "<script>alert('Name entered must have at least one character with a maximum of 30')</script>";
       $_SESSION['dateError'] = $errorMsg;
-      header("Location:updateteam.php"); //used to return to previous page
+      header("Location: updateteam.php"); //used to return to previous page
       delete_everything();//used to confirm no other script from this page runs.
     };
   };
@@ -42,7 +42,7 @@
       session_start();
       $errorMsg = "<script>alert('Name entered must have at least one character with a maximum of 30')</script>";
       $_SESSION['dateError'] = $errorMsg;
-      header("Location:updateteam.php"); //used to return to previous page
+      header("Location: updateteam.php"); //used to return to previous page
       delete_everything();//used to confirm no other script from this page runs.
     };
   }
