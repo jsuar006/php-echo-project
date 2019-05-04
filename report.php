@@ -84,26 +84,26 @@
         			  echo "<p>Connection failed: ". $e->getMessage() . "</p>"; //getMessage() method of PDO exception object Returns Exception Message
     		    }
             //Creating table to display the information.
-      			echo "<table>
-              			<tr>
-                			<th>Race ID</th>
-                			<th>Race Name</th>
-                			<th>Driver Name</th>
-                			<th>Position Finished</th>
-                      <th>Team Name</th>
-                      <th>Team Manager</th>
-              			</tr>";
-      			//pulling from the database.
-      			foreach($st as $row) {
-              echo "<tr>
-                      <td>" . $row['RaceID'] . "</td>
-                      <td>" . $row['RaceName'] . "</td>
-                      <td>" . $row['DriverName'] . "</td>
-                      <td>" . $row['PositionFinished'] . "</td>
-                      <td>" . $row['TeamName'] . "</td>
-                      <td>" . $row['TeamManager'] . "</td>
-                    </tr>";
-      			} echo "</table>";
+        			echo "<table>
+                			<tr>
+                  			<th>Race ID</th>
+                  			<th>Race Name</th>
+                  			<th>Driver Name</th>
+                  			<th>Position Finished</th>
+                        <th>Team Name</th>
+                        <th>Team Manager</th>
+                			</tr>";
+        			//pulling from the database.
+        			foreach($st as $row) {
+                echo "<tr>
+                        <td>" . $row['RaceID'] . "</td>
+                        <td>" . $row['RaceName'] . "</td>
+                        <td>" . $row['DriverName'] . "</td>
+                        <td>" . $row['PositionFinished'] . "</td>
+                        <td>" . $row['TeamName'] . "</td>
+                        <td>" . $row['TeamManager'] . "</td>
+                      </tr>";
+        			} echo "</table>";
     		  }
     		?>
 
