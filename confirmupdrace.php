@@ -1,5 +1,5 @@
 <?php
-  include ("functions.php"); //includes global functions
+  include ("../functions.php"); //includes global functions
   // initializes variable being imported from a form.
   $raceID = $_POST["inpRaceID"];
   $raceName = $_POST["inpRaceName"];
@@ -20,7 +20,7 @@
     session_start();
     $errorMsg = "<script>alert('Please enter a value on at least one of the fields to update.')</script>";
     $_SESSION['dateError'] = $errorMsg;
-    header("Location: updatedrace.php"); //used to return to previous page
+    header("Location:updatedrace.php"); //used to return to previous page
     delete_everything();//used to confirm no other script from this page runs.
   }
 
@@ -31,7 +31,7 @@
       session_start();
       $errorMsg = "<script>alert('Name entered must have at least one character with a maximum of 30')</script>";
       $_SESSION['dateError'] = $errorMsg;
-      header("Location: updaterace.php"); //used to return to previous page
+      header("Location:updaterace.php"); //used to return to previous page
       delete_everything();//used to confirm no other script from this page runs.
     };
   };
@@ -39,11 +39,11 @@
   // will check to see if there is a value passed to the field
   if (!$raceLocation == null){
     //validates the name field, that there is a value entered and that the value is 30 char or less
-    if(strlen($raceLocation) == 0 || strlen($raceLocation)>30){
+    if(strlen($raceLocation) == 0 || strlen($raceName)>30){
       session_start();
       $errorMsg = "<script>alert('Location entered must have at least one character with a maximum of 30')</script>";
       $_SESSION['dateError'] = $errorMsg;
-      header("Location: updaterace.php"); //used to return to previous page
+      header("Location:updaterace.php"); //used to return to previous page
       delete_everything();//used to confirm no other script from this page runs.
     };
   };
@@ -54,7 +54,7 @@
       session_start();
       $errorMsg = "<script>alert('The date inputed is not in the proper format MM/DD/YYYY. Please input correct format')</script>";
       $_SESSION['dateError'] = $errorMsg;
-      header("Location: updaterace.php"); //used to return to previous page
+      header("Location:updaterace.php"); //used to return to previous page
       delete_everything(); //used to confirm no other script from this page runs.
     };
   };
@@ -136,7 +136,7 @@
   <head>
     <title>Information updated</title>
     <meta charset="utf-8">
-    <link href="stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
+    <link href="../stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
     <h1>Information Updated</h1>
@@ -167,7 +167,7 @@
       </tr>
 
     </table>
-    <button type='button' onclick='location.href="raceinfo.php"'>Return to Race Info</button>
+    <button type='button' onclick='location.href="../raceinfo.php"'>Return to Race Info</button>
   </body>
 </html>
 
