@@ -70,7 +70,7 @@
 
               //Send SQL Search Query
               $RaceID = $_POST['RaceID'];
-              $sql = "SELECT race.RaceID, race.RaceName, driver.DriverName, raceparticipants.PositionFinished, team.TeamName, team.TeamManager FROM race, driver, raceparticipants, team WHERE race.RaceID = :RaceID";
+              $sql = "SELECT race.RaceID, race.RaceName, driver.DriverName, raceparticipants.PositionFinished, team.TeamName, team.TeamManager FROM race, driver, raceparticipants, team WHERE race.RaceID = raceparticipants.RaceID AND raceparticipants.DriverID = driver.DriverID AND raceparticipants.TeamID = team.TeamID AND race.RaceID = :RaceID";
 
               try {
                 $st = $conn->prepare($sql);
