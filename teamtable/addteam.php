@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title> Add Team Information</title>
+    <title>Add Team Information</title>
     <meta charset="utf-8">
     <link href="../stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
   </head>
@@ -31,15 +31,18 @@
     <main>
       <p>Please enter the New Team information</p>
       <form action="confirmaddteam.php" method="post">
-        Team ID: <input type="text" name="teamID"  placeholder="Team ID"><br>
-        Driver ID: <input type="text" name="teamName"  placeholder="Team Name"><br>
-        Position Finished <input type="text" name="teamManager" placeholder="Team Manager"><br>
-        <input type="submit" name="addrecordsubmit" value="Submit">
+        <label for="TeamName">Enter Team Name:</label>
+        <input type="text" name="TeamName" id="TeamName"  placeholder="Baby Got Track" maxlength="30" size="30" required />
+
+        <label for="TeamManager">Enter Team Manager:</label>
+        <input type="text" name="TeamManager" id="TeamManager" placeholder="Chuck Norris" maxlength="30" size="30" required />
+
+        <input type="submit" name="formSubmit" value="Submit">
       </form>
 
     </main>
     <footer>
-
+      
     </footer>
 
   </body>

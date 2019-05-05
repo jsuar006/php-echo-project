@@ -1,16 +1,16 @@
 <?php
   include ("../functions.php"); //includes global functions
   // initializes variable being imported from a form.
-  $teamID= $_POST["teamId"]
-  $teamName = $_POST["teamName"];
-  $teamManager = $_POST["teamManager"];
+  $teamID= $_POST["TeamID"];
+  $teamName = $_POST["TeamName"];
+  $teamManager = $_POST["TeamManager"];
   trim($teamID);
   trim($teamName);
   trim($teamManager);
 
   session_start();
-  $_SESSION['teamId'] = $teamID;
-  //echo "variables have {$driverID} {$driverName} and {$driverDOB}"; //debugging only
+  $_SESSION['TeamID'] = $teamID;
+  //echo "variables have {$teamID} and {$teamName} and {$teamManager}"; //debugging only
 
   // *****************INPUT VALIDATION BELOW *********************
 
@@ -54,59 +54,55 @@
   $userName = "admin";
   $password = "Pa11word";
 
-  try
-  {
-    $conn = new PDO($dsn,$userName,$password);
+  try {
+    $conn = new PDO($dsn, $userName, $password);
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //Allow Exceptions
     //echo 'Connected to database<br>'; // only to confirm if connected
-    // Prepare and execute the statement
-    if(!$teamName==null && $teamManager==null) // Prepare statement only if there is valid input on both fields
-    {
-      $query = 'UPDATE team SET
-                    TeamID = :teamID, TeamName=  :teamName, TeamManager = :teamManager
-                  WHERE
-                    TeamID= :teamId';
-      $statement = $conn->prepare($query);
-      $statement->bindValue(':teamName', $teamID);
-      $statement->bindValue(':teamManager', $teamManager);
 
+    //Update Team Name and Team Manager
+    if (!($teamName == null) && !($teamManager == null)) {
+      //SQL Query
+      $query = "UPDATE team SET TeamName = :teamName, TeamManager = :teamManager WHERE TeamID = :teamId";
 
-       $success = $statement->execute(); //executes the statement
-    }else if (!$teamName==null) //Prepares statement only if there is a valid input on the DriverName field
-    {
-      $query = 'UPDATE team SET
-                    TeamName=  :teamName
-                  WHERE
-                    TeamID= :teamId';
-      $statement = $conn->prepare($query);
-      $statement->bindValue(':teamName', $teamID);
-      $statement->bindValue(':teamManager', $teamManager);
+      try {
+        $st = $conn->prepare($query);
+        $st->bindValue( ":teamId", $teamID, PDO::PARAM_INT);
+        $st->bindValue( ":teamName", $teamName, PDO::PARAM_STR);
+        $st->bindValue( ":teamManager", $teamManager, PDO::PARAM_STR);
+        $success = $st->execute();
 
+      } catch(PDOException $error) {
+          echo "<p>Query Failed: " . $error->getMessage() . "</p>";
+      }
+      //Update Team Name
+    } elseif (!($teamName == null)) {
+        //SQL Query
+        $query = "UPDATE team SET TeamName = :teamName WHERE TeamID = :teamId";
 
-       $success = $statement->execute(); //executes the statement
-    }else if (!$teamManager==null) // Prepares statement only if there is a valid input on the DriverDOB field
-    {
+        try {
+          $st = $conn->prepare($query);
+          $st->bindValue( ":teamId", $teamID, PDO::PARAM_INT);
+          $st->bindValue( ":teamName", $teamName, PDO::PARAM_STR);
+          $success = $st->execute();
 
-        $query = 'UPDATE team SET
-                      TeamManager=  :teamManager
-                    WHERE
-                      TeamID= :teamId';
-        $statement = $conn->prepare($query);
-        $statement->bindValue(':teamName', $teamID);
-        $statement->bindValue(':teamManager', $teamManager);
+        } catch(PDOException $error) {
+            echo "<p>Query Failed: " . $error->getMessage() . "</p>";
+        }
+        //Update Team Manager
+    } elseif(!($teamManager == null)) {
+        //SQL Query
+        $query = "UPDATE team SET TeamManager = :teamManager WHERE TeamID = :teamId";
 
-       $success = $statement->execute(); //executes the statement
+        try {
+          $st = $conn->prepare($query);
+          $st->bindValue( ":teamId", $teamID, PDO::PARAM_INT);
+          $st->bindValue( ":teamManager", $teamManager, PDO::PARAM_STR);
+          $success = $st->execute();
+
+      } catch(PDOException $erro) {
+          echo "<p>Query Failed: " . $error->getMessage() . "</p>";
+      }
     }
-
-
-
-    // for debuggin purposes only
-    // if ($success) {
-    //   echo "<p>Update inserted with this ID: $driverID and $driverName and $driverDOB</p>";
-    // } else {
-    //   echo "<p>No rows were inserted.</p>";
-    // }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -118,22 +114,23 @@
   </head>
   <body>
     <h1>Team Information Updated</h1>
-    <?php // this will confirm to the user if a value was updated or not.
-     if ($success) {
-      echo "<p>Below is the information updated for Team: $teamID.</p>";
-    } else {
-      echo "<p>Error, no values were updated, please try again.</p>";
-    }
+    <?php
+      // this will confirm to the user if a value was updated or not.
+       if ($success) {
+        echo "<p>Below is the information updated for Team: $teamID.</p>";
+      } else {
+        echo "<p>Error, no values were updated, please try again.</p>";
+      }
 
     ?>
     <table>
       <tr>
         <td>Team Name: </td>
-        <td>  <?php echo ($teamName==null) ?  "No Change" :  $teamName ;?></td>
+        <td><?php echo ($teamName==null) ?  "No Change" :  $teamName; ?></td>
       </tr>
       <tr>
-        <td>Team Managert: </td>
-        <td><?php echo ($teamManager==null)? "No Change" : $teamManager ?></td>
+        <td>Team Manager: </td>
+        <td><?php echo ($teamManager==null)? "No Change" : $teamManager; ?></td>
       </tr>
     </table>
     <button type='button' onclick='location.href="../teaminfo.php"'>Return to Team Info</button>
@@ -142,11 +139,9 @@
 
 <?php
 
-  }
-  catch(PDOException $e)
-  {
-    echo $e->getMessage(); //error message if connection fails
-  }
+  } catch(PDOException $e) {
+    echo "<p>Connection Failed: " . $e->getMessage() . "</p>"; //error message if connection fails
+    }
 
-  $conn=null; // close the connection
+  $conn = null; // close the connection
 ?>

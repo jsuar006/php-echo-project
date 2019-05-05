@@ -1,27 +1,25 @@
 <?php
   include ("../functions.php"); //includes global functions
-  $teamID= $_POST["teamId"]
-  $teamName = $_POST["teamName"];
-  $teamManager = $_POST["teamManager"];
-  trim($teamID);
+  $teamName = $_POST["TeamName"];
+  $teamManager = $_POST["TeamManager"];
   trim($teamName);
   trim($teamManager);
-  //echo "variables have {$driverName} and {$driverDOB}" //debugging only
 
   //validates the name field, that there is a value entered and that the value is 30 char or less
   if(strlen($teamName) == 0 || strlen($teamName)>30){
     session_start();
     $errorMsg = "<script>alert('Name entered must have at least one character with a maximum of 30')</script>";
     $_SESSION['dateError'] = $errorMsg;
-    header("Location:formadddriver.php"); //used to return to previous page
+    header("Location: addteam.php"); //used to return to previous page
     delete_everything();//used to confirm no other script from this page runs.
   };
+
   //validation of date input if not validated it will trigger an alert and return to the form.
   if(strlen($teamManager) == 0 || strlen($teamManager)>30){
     session_start();
     $errorMsg = "<script>alert('Name entered must have at least one character with a maximum of 30')</script>";
     $_SESSION['dateError'] = $errorMsg;
-    header("Location:formadddriver.php"); //used to return to previous page
+    header("Location: addteam.php"); //used to return to previous page
     delete_everything();//used to confirm no other script from this page runs.
   };
 
@@ -30,39 +28,40 @@
   $userName = "admin";
   $password = "Pa11word";
 
-  try
-  {
-    $conn = new PDO($dsn,$userName,$password);
-    //echo 'Connected to database<br>'; // only to confirm if connected
-    // Prepare and execute the statement
-  $query = 'INSERT INTO team
-                (TeamName, TeamManager)
-              VALUES
-                (:teamName, :teamManager)';
-  $statement = $conn->prepare($query);
-  $statement->bindValue(':teamName', $teamName);
-  $statement->bindValue(':teamManager', $teamManager;
-  $success = $statement->execute();
-  $row_count = $statement->rowCount();
-  $statement->closeCursor();
+  try {
+    $conn = new PDO($dsn, $userName, $password);
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //Allow Exceptions
+    //echo 'Connected to database';
 
-  // Get the last product ID that was generated
-  $table_id = $conn->lastInsertId();
+    // Prepare and execute SQL statement
+    $query = 'INSERT INTO team
+                  (TeamName, TeamManager)
+                VALUES
+                  (:teamName, :teamManager)';
+    try {
+      $statement = $conn->prepare($query);
+      $statement->bindValue(':teamName', $teamName);
+      $statement->bindValue(':teamManager', $teamManager);
+      $success = $statement->execute();
+      $row_count = $statement->rowCount();
+      $statement->closeCursor();
+    } catch(PDOException $error) {
+      echo "<p>Query Failed: " . $error->getMessage() . "</p>";
+      }
 
-  //// used for debugging
-  // if ($success) {
-  //   echo "<p>$row_count row(s) was inserted with this ID: $table_id</p>";
-  // } else {
-  //   echo "<p>No rows were inserted.</p>";
-  // }
+    // Get the last product ID that was generated
+    $table_id = $conn->lastInsertId();
 
-  }
-  catch(PDOException $e)
-  {
-    echo $e->getMessage(); //error message if connection fails
-  }
+    //// used for debugging
+    // if ($success) {
+    //   echo "<p>$row_count row(s) was inserted with this ID: $table_id</p>";
+    // } else {
+    //   echo "<p>No rows were inserted.</p>";
+    // }
 
-
+  } catch(PDOException $e) {
+      echo "<p>Connection Failed: " . $e->getMessage() . "</p>"; //error message if connection fails
+    }
 
   $conn=null; // close the connection
 ?>
@@ -70,23 +69,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Team Information updated</title>
+    <title>Team Information Updated</title>
     <meta charset="utf-8">
     <link href="../stylesheets/mainstyle.css" rel="stylesheet" type="text/css"/>
   </head>
+
   <body>
-    <h1>Team Information Added</h1>
-    <p>Below was the information succesfully added.</p>
-    <table>
-      <tr>
-        <td>Team Name</td>
-        <td><?php echo $_POST["teamName"]?></td>
-      </tr>
-      <tr>
-        <td> Team Manager</td>
-        <td><?php echo $_POST["teamManager"]?></td>
-      </tr>
-    </table>
-    <button type='button' onclick='location.href="../teaminfo.php"'>Return to Team Info</button>
-  </body>
+    <main>
+      <h1>Team Information Added</h1>
+      <p>Below was the information succesfully added.</p>
+      <table>
+        <tr>
+          <td>Team Name</td>
+          <td><?php echo $_POST["TeamName"]?></td>
+        </tr>
+        <tr>
+          <td> Team Manager</td>
+          <td><?php echo $_POST["TeamManager"]?></td>
+        </tr>
+      </table>
+      <br />
+      <button type='button' onclick='location.href="../teaminfo.php"'>Return to Team Info</button>
+    </body>
+  </main>
+
 </html>
