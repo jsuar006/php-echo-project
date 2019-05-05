@@ -12,7 +12,7 @@ index.php - Claudia Farquharson, Jennifer Suarez
 raceinfo.php - Claudia Farquharson & Luis Leslie
 raceparticipation.php - Claudia Farquharson & Luis Leslie
 driverinfo.php - Luis Leslie
-teaminfo.php - Claudia Farquharson & Luis Leslie
+teaminfo.php - Claudia Farquharson & Luis Leslie & Jennifer Suarez
 teamdriver.php - Claudia Farquharson & Luis Leslie
 racereport.php - Jennifer Suarez, Jordan Messano
 mainstyles.css - Jennifer Suarez
